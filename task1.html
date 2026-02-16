@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Copilot Workshop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; font-size: 16.8px; line-height: 1.6; color: #333; max-width: 800px; margin: 40px auto; padding: 20px; }
+        h1 { font-family: 'Poppins', sans-serif; font-size: 58.8px; font-weight: 600; color: #24292e; border-bottom: 2px solid #eaecef; padding-bottom: 10px; }
+        h2 { font-family: 'Poppins', sans-serif; font-size: 39.9px; font-weight: 500; color: #0366d6; margin-top: 30px; }
+        .slide-box { background: #f6f8fa; border: 1px solid #d1d5da; border-radius: 6px; padding: 20px; margin-bottom: 30px; }
+        .feature-tag { background: #e1f5fe; color: #01579b; padding: 4px 8px; border-radius: 4px; font-weight: bold; font-size: 0.945em; }
+        code { background: #fff; padding: 2px 5px; border: 1px solid #ddd; border-radius: 3px; font-family: monospace; }
+        ul { padding-left: 20px; }
+        .demo-step { border-left: 4px solid #28a745; padding-left: 15px; margin-top: 15px; font-style: italic; }
+        hr { border: 0; border-top: 1px solid #eee; margin: 40px 0; }
+    </style>
+</head>
+<body>
+
+    <h1>GitHub Copilot in VS Code</h1>
+
+    <div class="slide-box">
+        <h2>01. Ghost Text & Comments-to-Code</h2>
+        <span class="feature-tag">Feature: Copilot Autocomplete</span>
+        <ul>
+            <li><b>Concept:</b> Real-time code suggestions based on natural language intent.</li>
+            <li><b>Mechanism:</b> Copilot analyzes comments and surrounding code to predict the next lines.</li>
+        </ul>
+        <div class="demo-step">
+            <strong>Live Demo:</strong> Create a new file, type <code>// Function to validate an email address</code>, press <code>Enter</code>, and hit <code>Tab</code>.
+        </div>
+    </div>
+
+    <div class="slide-box">
+        <h2>02. Chat View & Slash Commands</h2>
+        <span class="feature-tag">Feature: Side Panel Chat</span>
+        <ul>
+            <li><b>Commands:</b> Use <code>/explain</code> to understand logic or <code>/fix</code> for errors.</li>
+            <li><b>Context:</b> Use <code>#file</code> or <code>#selection</code> to provide specific background.</li>
+            <li><b>Flexibility:</b> Switch between LLM models (GPT-4o / Claude) in the chat header.</li>
+        </ul>
+        <div class="demo-step">
+            <strong>Live Demo:</strong> Open <code>Ctrl+Alt+I</code>, type <code>#file:package.json Summarize the dependencies</code>.
+        </div>
+    </div>
+
+    <div class="slide-box">
+        <h2>03. Agent Mode (Copilot Edits)</h2>
+        <span class="feature-tag">Feature: Copilot Edits</span>
+        <ul>
+            <li><b>Agentic Behavior:</b> Can plan and execute changes across <strong>multiple files</strong> simultaneously.</li>
+            <li><b>Goal:</b> High-level feature implementation (e.g., adding a new API route and a UI component).</li>
+        </ul>
+        <div class="demo-step">
+            <strong>Live Demo:</strong> Open Edits (<code>Ctrl+Shift+I</code>), prompt: <i>"Add a basic Contact form component and a route to handle it."</i>
+        </div>
+    </div>
+
+    <div class="slide-box">
+        <h2>04. Autonomous Testing & Fixing</h2>
+        <span class="feature-tag">Feature: Terminal & Agent Integration</span>
+        <ul>
+            <li><b>Generation:</b> Automatically creates unit tests for existing logic.</li>
+            <li><b>Self-Healing:</b> Agent can run the test, read terminal errors, and fix the code autonomously.</li>
+        </ul>
+        <div class="demo-step">
+            <strong>Live Demo:</strong> In Edits, ask: <i>"/tests create unit tests, run them, and fix if they fail."</i>
+        </div>
+    </div>
+
+    <div class="slide-box">
+        <h2>05. Inline Chat (Quick Actions)</h2>
+        <span class="feature-tag">Feature: Inline Chat (Ctrl+I)</span>
+        <ul>
+            <li><b>Focus:</b> Edit code without switching to a side window.</li>
+            <li><b>Refactoring:</b> Best for adding <code>try/catch</code>, <code>documentation</code>, or CSS classes.</li>
+        </ul>
+        <div class="demo-step">
+            <strong>Live Demo:</strong> Highlight a function, press <code>Ctrl+I</code>, type <i>"/doc wrap this in try-catch and add JSDoc."</i>
+        </div>
+    </div>
+
+    <div class="slide-box">
+        <h2>06. Custom Instructions</h2>
+        <span class="feature-tag">Feature: .github/copilot-instructions.md</span>
+        <ul>
+            <li><b>Persistence:</b> Define project-wide rules (e.g., "Use TypeScript", "Use Tailwind").</li>
+            <li><b>Automation:</b> Copilot automatically includes this file in every prompt context.</li>
+        </ul>
+        <div class="demo-step">
+            <strong>Live Demo:</strong> Create the file <code>.github/copilot-instructions.md</code> and define a specific coding style.
+        </div>
+    </div>
+
+</body>
+</html>
