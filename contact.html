@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>צור קשר - GitHub Copilot</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      background: linear-gradient(135deg, #f0f4f8 0%, #e8f1f9 100%);
+      padding: 40px 20px;
+      color: #1a202c;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 56px;
+      font-weight: 800;
+      text-align: center;
+      margin: 40px 0 15px 0;
+      background: linear-gradient(135deg, #0066ff 0%, #0044cc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -1px;
+    }
+
+    h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 38px;
+      font-weight: 700;
+      text-align: center;
+      margin: 30px 0 10px 0;
+      color: #0055cc;
+      letter-spacing: -0.5px;
+    }
+
+    p {
+      margin: 18px auto;
+      font-size: 16px;
+      font-weight: 500;
+      color: #475569;
+      text-align: center;
+      max-width: 900px;
+    }
+
+    section {
+      background: white;
+      padding: 32px;
+      margin: 24px auto;
+      max-width: 900px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 51, 102, 0.08);
+      border: 1px solid rgba(0, 102, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    section:hover {
+      box-shadow: 0 8px 32px rgba(0, 51, 102, 0.12);
+    }
+
+    .form-group {
+      margin: 24px 0;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #334155;
+      font-size: 15px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 16px;
+      font-family: 'Inter', sans-serif;
+      color: #1a202c;
+      transition: all 0.3s ease;
+      background: #f8fafc;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #0066ff;
+      background: white;
+      box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    button[type="submit"] {
+      display: inline-block;
+      padding: 16px 40px;
+      background: linear-gradient(135deg, #0066ff 0%, #0055cc 100%);
+      color: white;
+      border: none;
+      font-weight: 600;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 102, 255, 0.3);
+      font-family: 'Inter', sans-serif;
+    }
+
+    button[type="submit"]:hover {
+      box-shadow: 0 6px 20px rgba(0, 102, 255, 0.4);
+      transform: translateY(-2px);
+    }
+
+    button[type="submit"]:active {
+      transform: translateY(0);
+    }
+
+    .back-link {
+      display: inline-block;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, #0066ff 0%, #0055cc 100%);
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 102, 255, 0.2);
+      margin: 20px auto;
+      display: block;
+      width: fit-content;
+    }
+
+    .back-link:hover {
+      box-shadow: 0 4px 16px rgba(0, 102, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .error-message {
+      color: #dc2626;
+      font-size: 14px;
+      margin-top: 4px;
+      display: none;
+    }
+
+    .success-message {
+      background: #d1fae5;
+      border: 2px solid #10b981;
+      color: #065f46;
+      padding: 16px;
+      border-radius: 8px;
+      margin: 24px 0;
+      text-align: center;
+      font-weight: 600;
+      display: none;
+    }
+
+    .required {
+      color: #dc2626;
+    }
+  </style>
+</head>
+<body>
+  <h1>GitHub Copilot</h1>
+  <h2>צור קשר</h2>
+  
+  <a href="index.html" class="back-link">חזרה לדף הראשי</a>
+
+  <section>
+    <p>יש לך שאלות או הצעות? נשמח לשמוע ממך!</p>
+    
+    <div id="successMessage" class="success-message">
+      תודה! הודעתך נשלחה בהצלחה. ניצור איתך קשר בהקדם.
+    </div>
+
+    <form id="contactForm">
+      <div class="form-group">
+        <label for="name">שם מלא <span class="required">*</span></label>
+        <input type="text" id="name" name="name" required>
+        <span class="error-message" id="nameError">אנא הזן שם מלא</span>
+      </div>
+
+      <div class="form-group">
+        <label for="email">דוא"ל <span class="required">*</span></label>
+        <input type="email" id="email" name="email" required>
+        <span class="error-message" id="emailError">אנא הזן כתובת דוא"ל תקינה</span>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">טלפון</label>
+        <input type="tel" id="phone" name="phone">
+        <span class="error-message" id="phoneError">אנא הזן מספר טלפון תקין</span>
+      </div>
+
+      <div class="form-group">
+        <label for="subject">נושא <span class="required">*</span></label>
+        <input type="text" id="subject" name="subject" required>
+        <span class="error-message" id="subjectError">אנא הזן נושא</span>
+      </div>
+
+      <div class="form-group">
+        <label for="message">הודעה <span class="required">*</span></label>
+        <textarea id="message" name="message" required></textarea>
+        <span class="error-message" id="messageError">אנא הזן הודעה</span>
+      </div>
+
+      <button type="submit">שלח הודעה</button>
+    </form>
+  </section>
+
+  <script src="script.js"></script>
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      // Clear previous error messages
+      document.querySelectorAll('.error-message').forEach(el => el.style.display = 'none');
+      
+      // Get form values
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const subject = document.getElementById('subject').value.trim();
+      const message = document.getElementById('message').value.trim();
+      
+      let isValid = true;
+      
+      // Validate name
+      if (!name) {
+        document.getElementById('nameError').style.display = 'block';
+        isValid = false;
+      }
+      
+      // Validate email
+      if (!email || !validateEmail(email)) {
+        document.getElementById('emailError').style.display = 'block';
+        isValid = false;
+      }
+      
+      // Validate phone (optional, but if provided should be valid)
+      if (phone && !/^\d{9,10}$/.test(phone.replace(/[\s-]/g, ''))) {
+        document.getElementById('phoneError').style.display = 'block';
+        isValid = false;
+      }
+      
+      // Validate subject
+      if (!subject) {
+        document.getElementById('subjectError').style.display = 'block';
+        isValid = false;
+      }
+      
+      // Validate message
+      if (!message) {
+        document.getElementById('messageError').style.display = 'block';
+        isValid = false;
+      }
+      
+      if (!isValid) {
+        return;
+      }
+      
+      // Send form data to backend
+      try {
+        const response = await fetch('http://localhost:3000/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            phone,
+            subject,
+            message
+          })
+        });
+        
+        if (response.ok) {
+          // Show success message
+          document.getElementById('successMessage').style.display = 'block';
+          // Reset form
+          document.getElementById('contactForm').reset();
+          // Scroll to success message
+          document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+        } else {
+          alert('אירעה שגיאה בשליחת הטופס. אנא נסה שוב.');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('אירעה שגיאה בשליחת הטופס. אנא נסה שוב.');
+      }
+    });
+  </script>
+</body>
+</html>

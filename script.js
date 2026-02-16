@@ -8,3 +8,8 @@ function validateID(id) {
     const re = /^\d{9}$/;
     return re.test(String(id));
 }
+
+// Export functions for testing (Node.js environment)
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { validateEmail, validateID };
+}

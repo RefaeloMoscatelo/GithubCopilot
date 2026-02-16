@@ -1,0 +1,49 @@
+{
+  "workers": [
+    {
+      "id": "123456789",
+      "name": "John Doe",
+      "email": "john.doe@company.com",
+      "position": "Software Engineer",
+      "department": "Engineering",
+      "salary": 85000,
+      "startDate": "2023-01-15"
+    },
+    {
+      "id": "234567890",
+      "name": "Jane Smith",
+      "email": "jane.smith@company.com",
+      "position": "Product Manager",
+      "department": "Product",
+      "salary": 95000,
+      "startDate": "2022-06-01"
+    },
+    {
+      "id": "345678901",
+      "name": "Mike Johnson",
+      "email": "mike.johnson@company.com",
+      "position": "Designer",
+      "department": "Design",
+      "salary": 75000,
+      "startDate": "2024-03-10"
+    },
+    {
+      "id": "456789012",
+      "name": "Sarah Williams",
+      "email": "sarah.williams@company.com",
+      "position": "Data Analyst",
+      "department": "Analytics",
+      "salary": 80000,
+      "startDate": "2023-09-20"
+    },
+    {
+      "id": "567890123",
+      "name": "David Brown",
+      "email": "david.brown@company.com",
+      "position": "DevOps Engineer",
+      "department": "Engineering",
+      "salary": 90000,
+      "startDate": "2021-11-05"
+    }
+  ]
+}
